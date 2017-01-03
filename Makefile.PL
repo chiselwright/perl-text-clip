@@ -23,7 +23,7 @@ my %WriteMakefileArgs = (
                                            },
                        'ABSTRACT' => 'Clip and extract text in clipboard-like way',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.0014',
+                       'VERSION' => '0.0014001',
                        'PREREQ_PM' => {
                                         'Moo' => '0',
                                         'MooX::Types::MooseLike::Base' => 0,

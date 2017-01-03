@@ -1,6 +1,6 @@
 package Text::Clip;
 BEGIN {
-  $Text::Clip::VERSION = '0.0014';
+  $Text::Clip::VERSION = '0.0014001';
 }
 # ABSTRACT: Clip and extract text in clipboard-like way
 
@@ -224,7 +224,7 @@ Text::Clip - Clip and extract text in clipboard-like way
 
 =head1 VERSION
 
-version 0.0014
+version 0.0014001
 
 =head1 SYNOPSIS
 

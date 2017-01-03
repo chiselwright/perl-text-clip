@@ -3,6 +3,9 @@ TODO:
     - Automatically add /m to end of pattern?
     - Add 'next' for repeating the same pattern
 
+0.0014001
+    - Replace Any::Moose with Moo (@chizcw)
+
 0.0014 Tuesday June 01 09:48:31 PDT 2010:
     - Change name to Text::Clip
 

@@ -3,16 +3,22 @@ abstract: 'Clip and extract text in clipboard-like way'
 author:
   - 'Robert Krimen <robertkrimen@gmail.com>'
 build_requires:
-  Test::Most: 0
+  Test::Most: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 6.31
-generated_by: 'Dist::Zilla version 2.101170'
+  ExtUtils::MakeMaker: '6.31'
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 7.24, CPAN::Meta::Converter version 2.150005'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: Text-Clip
-recommends: {}
+no_index:
+  directory:
+    - t
+    - inc
 requires:
-  Any::Moose: 0
-version: 0.0014
+  Moo: '0'
+  MooX::Types::MooseLike::Base: '0'
+version: '0.0014001'
+x_serialization_backend: 'CPAN::Meta::YAML version 0.018'
