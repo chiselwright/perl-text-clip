@@ -5,19 +5,20 @@ BEGIN {
 # ABSTRACT: Clip and extract text in clipboard-like way
 
 
-use Any::Moose;
+use Moo;
+use MooX::Types::MooseLike::Base ':all';
 
-has data => qw/ reader data writer _data required 1 /;
-has [qw/ start head tail mhead mtail /] => qw/ is rw required 1 isa Int default 0 /;
-has _parent => qw/ is ro isa Maybe[Text::Clip] init_arg parent /;
+has data => qw/ is ro reader data writer _data required 1 /;
+has [qw/ start head tail mhead mtail /] => (is => 'rw', required => 1, isa => Int, default => 0);
+has _parent => ( is => 'ro', init_arg => 'parent', isa => Maybe[CodeRef] );
 
-has found => qw/ is ro required 1 isa Str /, default => '';
-has content => qw/ is ro required 1 isa Str /, default => '';
-has _matched => qw/ init_arg matched is ro isa ArrayRef /, default => sub { [] };
+has found => ( is => 'ro', required => 1, isa => Str, default => '' );
+has content => ( is => 'ro', required => 1, isa => Str, default => '' );
+has _matched => ( init_arg => 'matched', is => 'ro', isa => ArrayRef, default => sub { [] } );
 sub matched { return @{ $_[0]->matched } }
 has matcher => qw/ is ro /, default => undef;
 
-has default => qw/  is ro lazy_build 1 isa HashRef /;
+has default => ( is => 'ro', lazy_build => 1, isa => Maybe[HashRef] );
 sub _build_default { {
     slurp => '[)',
 } }
@@ -127,7 +128,7 @@ sub split {
     my $content = substr $$data, $head, 1 + $tail - $head;
 
     my $split =  __PACKAGE__->new(
-        data => $data, parent => $self,
+        data => $data, parent => sub { $self },
         start => $from, mhead => $mhead, mtail => $mtail, head => $head, tail => $tail,
         matcher => $matcher, found => $found, matched => \@matched,
         content => $content,

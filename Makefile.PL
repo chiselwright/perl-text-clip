@@ -25,7 +25,8 @@ my %WriteMakefileArgs = (
                        'EXE_FILES' => [],
                        'VERSION' => '0.0014',
                        'PREREQ_PM' => {
-                                        'Any::Moose' => '0'
+                                        'Moo' => '0',
+                                        'MooX::Types::MooseLike::Base' => 0,
                                       },
                        'LICENSE' => 'perl'
                      );
